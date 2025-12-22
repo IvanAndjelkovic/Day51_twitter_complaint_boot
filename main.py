@@ -58,7 +58,8 @@ class InternetSpeedTwitterBot:
         go_button.click() 
 
         wait  = WebDriverWait(self.driver,2)
-        download_speed= wait.until(EC.text_to_be_present_in_element_value((By.XPATH ,download_speed_xpath),'Mbps'))
+        time.sleep(60)
+        download_speed= wait.until(EC.element_to_be_clickable((By.XPATH ,download_speed_xpath ))) 
         download_speed_text = download_speed.text
         print(download_speed)
         

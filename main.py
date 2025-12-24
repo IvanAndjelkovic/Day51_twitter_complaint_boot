@@ -60,10 +60,12 @@ class InternetSpeedTwitterBot:
         wait  = WebDriverWait(self.driver,2)
         time.sleep(60)
         download_speed= wait.until(EC.element_to_be_clickable((By.XPATH ,download_speed_xpath ))) 
-        download_speed_text = download_speed.text
+        self.down = download_speed.text
         upload_speed= wait.until(EC.element_to_be_clickable((By.XPATH ,upload_speed_xpath ))) 
-        upload_speed_text = upload_speed.text
-        print(download_speed_text, upload_speed_text)
+        self.up = upload_speed.text
+        
+        print(f"down: {self.down}")
+        print(f"Up: {self.up}")
         
 
 
@@ -72,8 +74,7 @@ class InternetSpeedTwitterBot:
 
 
     def tweet_at_provider(self):
-        print("mile")
-
+        pass
 
 
 bot = InternetSpeedTwitterBot()

@@ -19,7 +19,7 @@ speed_test_url="https://www.speedtest.net/"
 go_button_xpath='//*[@id="container"]/div[1]/div[3]/div/div/div/div[2]/div[2]/div/div[2]/a/span[4]'
 accept_privacy_button_xpath = '//*[@id="onetrust-accept-btn-handler"]'
 download_speed_xpath = '//*[@id="container"]/div[1]/div[3]/div/div/div/div[2]/div[2]/div/div[4]/div/div[3]/div/div/div[2]/div[1]/div[1]/div/div[2]/span'
-
+upload_speed_xpath ='//*[@id="container"]/div[1]/div[3]/div/div/div/div[2]/div[2]/div/div[4]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span'
 
 
 
@@ -61,7 +61,9 @@ class InternetSpeedTwitterBot:
         time.sleep(60)
         download_speed= wait.until(EC.element_to_be_clickable((By.XPATH ,download_speed_xpath ))) 
         download_speed_text = download_speed.text
-        print(download_speed)
+        upload_speed= wait.until(EC.element_to_be_clickable((By.XPATH ,upload_speed_xpath ))) 
+        upload_speed_text = upload_speed.text
+        print(download_speed_text, upload_speed_text)
         
 
 
@@ -77,4 +79,4 @@ class InternetSpeedTwitterBot:
 bot = InternetSpeedTwitterBot()
 bot.get_internet_speed()
 bot.tweet_at_provider()
-time.sleep(120)
+time.sleep(20)
